@@ -1,0 +1,65 @@
+.admin_container{
+    /* background-color: rgba(186, 160, 212, 0.619); */
+    width: 50vw;
+    margin: 5vh auto;
+}
+.admin_container .row{
+    display: flex;
+    margin-bottom: 4vh;
+    /* justify-content: space-evenly; */
+}
+
+.admin_container .row div:not(:first-child)
+{
+    flex: 30%;
+}
+
+.admin_container div:first-child{
+    flex: 10%;
+    /* background-color: aqua; */
+}
+
+.admin_container .btn{
+    border-radius: 80px;
+    padding: 2px;
+    transition: all .5s, transform .3s;
+}   
+
+.admin_container .btn:hover{
+    transform: scale(1.1);
+    color: white;
+}
+
+.admin_container .verification_value{
+    margin-left: 1vw;
+}
+.admin_container .wrongMark{
+    color: red;
+    border: 2px solid red;
+}
+
+.admin_container .wrongMark:hover{
+    background-color: red;
+    box-shadow: 0px 1px 6px 1px red;
+}
+
+.admin_container .rightMark{
+    color: green;
+    border: 2px solid green;
+    border-radius: 80px;
+}
+.admin_container .rightMark:hover{
+    background-color: green;
+    box-shadow: 0px 1px 6px 1px green;
+}
+
+.admin_container .name_email{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin_container .name_email span:nth-child(2){
+    font-size: .8vw;
+    color: grey;
+    padding-left: 1vw;
+}
