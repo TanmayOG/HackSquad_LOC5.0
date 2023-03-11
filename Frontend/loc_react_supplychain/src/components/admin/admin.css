@@ -11,6 +11,10 @@
     /* justify-content: space-evenly; */
 }
 
+
+.admin_container .row:first-child{
+    font-weight: bold;
+}
 .admin_container .row div:not(:first-child)
 {
     flex: 30%;
@@ -18,7 +22,6 @@
 
 .admin_container div:first-child{
     flex: 10%;
-    /* background-color: aqua; */
 }
 
 .admin_container .btn{

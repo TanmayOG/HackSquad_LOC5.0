@@ -73,11 +73,11 @@ function Admin_component() {
             )} */}
             {d[4] == true ? (
               <div className="verification_value">
-                <MdDone className="btn rightMark" size={15} />
+                <MdDone className="btn rightMark" size={25} />
               </div>
             ) : (
               <div className="verification_value">
-                <RxCross2 className="btn wrongMark" size={15} />
+                <RxCross2 className="btn wrongMark" size={25} />
               </div>
             )}
           </div>
