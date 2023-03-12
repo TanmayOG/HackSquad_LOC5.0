@@ -19,7 +19,7 @@ contract SuppyChain {
         string materialType;
         string materialLocation;
         string materialDate;
-        string materialOwnerAddress;
+        address materialOwnerAddress;
     }
 
     struct Manufacture {
@@ -62,6 +62,8 @@ contract SuppyChain {
         string productLocation;
         string docId;
     }
+
+    // create an NFT Token
 
     mapping(uint => NewSuppler) public suppler;
     mapping(uint => RawMaterial) public rawMaterial;
@@ -125,13 +127,24 @@ contract SuppyChain {
         }
     }
 
-    function AddMaterial(
+   function GetAllSuppler( ) public view returns (NewSuppler[] memory) {
+        NewSuppler[] memory temp = new NewSuppler[](supplerCount);
+        for (uint i = 0; i < supplerCount; i++) {
+            temp[i] = suppler[i];
+        }
+        return temp;
+    }
+
+   
+    // add raw material
+
+   function AddMaterial(
         string memory _materialName,
         string memory _materialId,
         string memory _materialType,
         string memory _materialLocation,
         string memory _materialDate,
-        string memory _materialOwnerAddress
+        address _materialOwnerAddress
     ) public {
         require(isVerified(msg.sender) == true);
         rawMaterial[rawMaterialCount] = RawMaterial(
@@ -145,18 +158,19 @@ contract SuppyChain {
         rawMaterialCount++;
     }
 
-    function GetRawMaterial(
-        string memory _materialOwnerAddress
-    ) public view returns (RawMaterial[] memory) {
-        require(isVerified(msg.sender) == true);
+
+// get Raw Material Where Address is equal to owner address
+
+function GetRawMaterials(address _ownerAddress)
+        public
+        view
+        returns (RawMaterial[] memory)
+    {
+       
         RawMaterial[] memory temp = new RawMaterial[](rawMaterialCount);
         uint count = 0;
         for (uint i = 0; i < rawMaterialCount; i++) {
-            if (
-                keccak256(
-                    abi.encodePacked(rawMaterial[i].materialOwnerAddress)
-                ) == keccak256(abi.encodePacked(_materialOwnerAddress))
-            ) {
+            if (rawMaterial[i].materialOwnerAddress == _ownerAddress) {
                 temp[count] = rawMaterial[i];
                 count++;
             }
@@ -164,13 +178,31 @@ contract SuppyChain {
         return temp;
     }
 
+    function GetRawMaterialByOwnerAddress(address _ownerAddress)
+        public
+        view
+        returns (RawMaterial[] memory)
+    {
+        require(isVerified(msg.sender) == true);
+        RawMaterial[] memory temp = new RawMaterial[](rawMaterialCount);
+        uint count = 0;
+        for (uint i = 0; i < rawMaterialCount; i++) {
+            if (rawMaterial[i].materialOwnerAddress == _ownerAddress) {
+                temp[count] = rawMaterial[i];
+                count++;
+            }
+        }
+        return temp;
+    }
+        
+
     function TransferToManuFacture(
         address _manufactureAddress,
         address _rawMaterialAddress,
         string memory _rawMaterialId
     ) public {
-        require(isVerified(msg.sender) == true);
-        require(isVerified(_manufactureAddress) == true);
+        // require(isVerified(msg.sender) == true);
+        // require(isVerified(_manufactureAddress) == true);
         transferRawToManufacture[
             transferRawToManufactureCount
         ] = TransferRawToManufacture(
@@ -181,7 +213,9 @@ contract SuppyChain {
         transferRawToManufactureCount++;
     }
 
-    function GetAllManufactureGoods(
+    // get all data when raw material is transfered to manufacture
+
+    function GetRawMaterialTransferToManufacture(
         address _manufactureAddress
     ) public view returns (TransferRawToManufacture[] memory) {
         require(isVerified(msg.sender) == true);
@@ -197,6 +231,30 @@ contract SuppyChain {
                 temp[count] = transferRawToManufacture[i];
                 count++;
             }
+        }
+        return temp;
+    }
+
+    // add manufacture
+
+    function AddManufacture(
+        string memory productToken,
+        address manufactureAddress
+    ) public {
+        // require(isVerified(msg.sender) == true);
+        manufacture[manufactureCount] = Manufacture(
+            productToken,
+            manufactureAddress
+        );
+        manufactureCount++;
+    }
+
+
+    function displayManufacture() public view returns (Manufacture[] memory) {
+        require(isVerified(msg.sender) == true);
+        Manufacture[] memory temp = new Manufacture[](manufactureCount);
+        for (uint i = 0; i < manufactureCount; i++) {
+            temp[i] = manufacture[i];
         }
         return temp;
     }
@@ -382,6 +440,33 @@ contract SuppyChain {
         for (uint i = 0; i < supplerAccts.length; i++) {
             if (supplerAccts[i] == _address) {
                 return suppler[i].isSuppler;
+            }
+        }
+    }
+
+    // create function to see suppler are are present or not
+
+    function isSuppler(address _address) public view returns (bool) {
+        for (uint i = 0; i < supplerAccts.length; i++) {
+            if (supplerAccts[i] == _address) {
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
+    }
+
+    function CheckisVerified(address _address) public view returns (bool) {
+        for (uint i = 0; i < supplerAccts.length; i++) {
+            if (supplerAccts[i] == _address) {
+                if (suppler[i].isSuppler == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
             }
         }
     }
