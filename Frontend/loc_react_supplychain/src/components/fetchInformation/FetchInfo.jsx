@@ -18,7 +18,7 @@ const account1 = web3.eth.accounts.privateKeyToAccount("0x" + private_key);
 web3.eth.accounts.wallet.add(account1);
 
 function FetchInfo() {
-  let { role, userAddress } = useParams();
+  let { role, value } = useParams();
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
   const [allUser, setAllUser] = useState([]);
@@ -32,25 +32,79 @@ function FetchInfo() {
   const getInfo = async () => {
     const contract = new web3.eth.Contract(ABI, contarct_address);
     if (role.toLowerCase() == "consumer") {
-      // const _consumer = await contract.methods.getConsumer(userAddress).call();
-      // setConsumer(_consumer);
-      // console.log(_consumer);
-      // const _retailer = await contract.methods.getRetailerByOwner(_consumer[0]);
-      // setRetailer(_retailer);
-      // console.log()
-      // const _distributer = await contract.methods.getTransportByOwner(
-      //   _retailer[0]
-      // );
-      // setdistributer(_distributer);
-      // console.log()
-      // const _manu = await contract.methods.getProductByOwner(_distributer[0]);
-      // setdistributer(_manu);
-      // console.log()
-      const _supplier = await contract.methods.getProductByOwner(
-        "0x9E0c8045ab918B9871A2601d17Bac5a6DDB0f519"
-      );
-      setdistributer(_supplier);
+      const _consumer = await contract.methods.getConsumer(value).call();
+      setConsumer(_consumer);
+      console.log(_consumer);
+      const _retailer = await contract.methods
+        .getRetailerByOwner(_consumer[0])
+        .call();
+      setRetailer(_retailer);
       console.log();
+      const _distributer = await contract.methods
+        .getTransportByOwner(_retailer[0])
+        .call();
+      setdistributer(_distributer);
+      console.log();
+      const _manu = await contract.methods
+        .getProductByOwner("0x1C1362A46a50Ba121f47e205e774ABDeC90C540f")
+        .call();
+      setdistributer(_manu);
+      console.log(_manu);
+      const _supplier = await contract.methods
+        .getRetailerByOwner("0x1C1362A46a50Ba121f47e205e774ABDeC90C540f")
+        .call();
+      setdistributer(_supplier);
+      console.log(_supplier);
+    }
+    if (role.toLowerCase() == "reatailer") {
+      const _retailer = await contract.methods.getRetailerByOwner(value).call();
+      setRetailer(_retailer);
+      console.log();
+      const _distributer = await contract.methods
+        .getTransportByOwner(_retailer[0])
+        .call();
+      setdistributer(_distributer);
+      console.log();
+      const _manu = await contract.methods
+        .getProductByOwner(_distributer[0])
+        .call();
+      setdistributer(_manu);
+      console.log(_manu);
+      const _supplier = await contract.methods.getRetailerByOwner(_manu).call();
+      setdistributer(_supplier);
+      console.log(_supplier);
+    }
+    if (role.toLowerCase() == "distributer") {
+      const _distributer = await contract.methods
+        .getTransportByOwner(value)
+        .call();
+      setdistributer(_distributer);
+      console.log();
+      const _manu = await contract.methods
+        .getProductByOwner(_distributer[0])
+        .call();
+      setdistributer(_manu);
+      console.log(_manu);
+      const _supplier = await contract.methods
+        .getRetailerByOwner(_manu[0])
+        .call();
+      setdistributer(_supplier);
+      console.log(_supplier);
+    }
+    if (role.toLowerCase() == "manufactere") {
+      const _manu = await contract.methods.getProductByOwner(value).call();
+      setdistributer(_manu);
+      console.log(_manu);
+      const _supplier = await contract.methods
+        .getRetailerByOwner("0x1C1362A46a50Ba121f47e205e774ABDeC90C540f")
+        .call();
+      setdistributer(_supplier);
+      console.log(_supplier);
+    }
+    if (role.toLowerCase() == "supplier") {
+      const _supplier = await contract.methods.getRetailerByOwner(value).call();
+      setdistributer(_supplier);
+      console.log(_supplier);
     }
   };
 

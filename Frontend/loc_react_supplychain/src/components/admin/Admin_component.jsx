@@ -66,7 +66,19 @@ function Admin_component() {
         setLoad(false);
       });
   };
-
+  let data = [
+    [0, "Tanmay Jha", "", "", "abc@gmail.com", "Retailer", true],
+    [
+      1,
+      "Aditya Waskar",
+      "",
+      "",
+      "abc2@gmail.com",
+      "Mnufacturer",
+      false,
+    ],
+    [3, "Himanshu Upadhyay", "", "", "abc3@gmail.com", "Retailer", false],
+  ];
   const getAllUsers = async () => {
     const contract = new web3.eth.Contract(ABI, contarct_address);
 
@@ -89,7 +101,7 @@ function Admin_component() {
         </div>
       </b>
       <div style={{ display: "none" }}>{(i = 1)}</div>
-      {allUser.map((d) => (
+      {data.map((d) => (
         <div className="row row_values" key={d[0]}>
           <div className="sr">{i++}</div>
           <div className="name_email">
