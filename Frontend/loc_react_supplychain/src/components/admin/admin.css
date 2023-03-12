@@ -20,7 +20,7 @@
     flex: 30%;
 }
 
-.admin_container div:first-child{
+.admin_container .row div:first-child{
     flex: 10%;
 }
 
@@ -67,4 +67,19 @@
     font-size: .8vw;
     color: grey;
     padding-left: 1vw;
+}
+
+.go2072408551{
+    flex: 0;
+    border-color: green;
+}
+
+.glass{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    background: transparent;
+    top: 0;
+    z-index: -1;
 }

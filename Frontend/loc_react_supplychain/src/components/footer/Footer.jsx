@@ -5,7 +5,12 @@ import "./footer.css";
 const Footer = () => {
   return (
     <footer>
-      <div className="footer_content">
+      <div
+        className="footer_content"
+        data-aos="slide-left"
+        data-aos-offset="200"
+        data-aos-once="true"
+      >
         <h3>LUXURY GOODS SUPPLY CHAIN MANAGEMENT USING BLOCKCHAIN</h3>
         <p>
           Blockchain can enhance the supply chain management of luxury goods by

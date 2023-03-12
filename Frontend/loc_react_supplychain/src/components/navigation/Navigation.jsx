@@ -8,7 +8,7 @@ const Navigation = () => {
   const [profileActive, setProfileActive] = useState(false);
   return (
     <nav>
-      <span className="title">
+      <span className="title" data-aos="slide-down">
         <SiBlockchaindotcom size={40} className="logo" />
         Luxury goods Supply Chain Management using Blockchain
       </span>
@@ -33,7 +33,7 @@ const Navigation = () => {
           </ul>
         </div>
       </div> */}
-      <hr />
+      <hr data-aos="slide-left" />
     </nav>
   );
 };
