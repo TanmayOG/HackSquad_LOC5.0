@@ -3,221 +3,90 @@ export const ABI = [
     inputs: [
       {
         internalType: "string",
-        name: "_productToken",
-        type: "string",
-      },
-      {
-        internalType: "address",
-        name: "_distributorAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_manufactureAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_productQuantity",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "_productDate",
+        name: "_docId",
         type: "string",
       },
       {
         internalType: "string",
-        name: "_productLocation",
+        name: "_consumerUrl",
         type: "string",
       },
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+    ],
+    name: "addConsumer",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
       {
         internalType: "string",
         name: "_docId",
         type: "string",
       },
+      {
+        internalType: "string",
+        name: "_productUrl",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
     ],
-    name: "AddDistributor",
+    name: "addProduct",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "_manufactureAddress",
-        type: "address",
-      },
-      {
-        internalType: "string",
-        name: "_productToken",
-        type: "string",
-      },
-    ],
-    name: "AddManufacture",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_materialName",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_materialId",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_materialType",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_materialLocation",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_materialDate",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_materialOwnerAddress",
-        type: "string",
-      },
-    ],
-    name: "AddMaterial",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_productToken",
-        type: "string",
-      },
-      {
-        internalType: "address",
-        name: "_retailerAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_distributorAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_productQuantity",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "_productDate",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_productLocation",
-        type: "string",
-      },
       {
         internalType: "string",
         name: "_docId",
         type: "string",
       },
+      {
+        internalType: "string",
+        name: "_materialUrl",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
     ],
-    name: "AddRetailers",
+    name: "addRawMaterial",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-      {
-        internalType: "string",
-        name: "_name",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_location",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_contact",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_email",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_role",
-        type: "string",
-      },
-    ],
-    name: "AddSuppler",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_productToken",
-        type: "string",
-      },
-      {
-        internalType: "address",
-        name: "_customerAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "_retailerAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_productQuantity",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "_productDate",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "_productLocation",
-        type: "string",
-      },
       {
         internalType: "string",
         name: "_docId",
         type: "string",
       },
+      {
+        internalType: "string",
+        name: "_retailerUrl",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
     ],
-    name: "giveToCustomer",
+    name: "addRetailer",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -225,104 +94,34 @@ export const ABI = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "_distributorAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_productQuantity",
-        type: "uint256",
+        internalType: "string",
+        name: "_docId",
+        type: "string",
       },
       {
         internalType: "string",
-        name: "docId",
+        name: "_transportUrl",
         type: "string",
-      },
-    ],
-    name: "reduceQuantityFromDistributor",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_retailerAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "_productQuantity",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "docId",
-        type: "string",
-      },
-    ],
-    name: "reduceQuantityFromRetailer",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_manufactureAddress",
-        type: "address",
       },
       {
         internalType: "address",
-        name: "_rawMaterialAddress",
+        name: "owner",
         type: "address",
       },
-      {
-        internalType: "string",
-        name: "_rawMaterialId",
-        type: "string",
-      },
     ],
-    name: "TransferToManuFacture",
+    name: "addTransport",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
     inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "VerifySuppler",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_address",
-        type: "address",
-      },
-    ],
-    name: "CheckisVerified",
+    name: "consumerCount",
     outputs: [
       {
-        internalType: "bool",
+        internalType: "uint256",
         name: "",
-        type: "bool",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -336,117 +135,22 @@ export const ABI = [
         type: "uint256",
       },
     ],
-    name: "customer",
+    name: "consumers",
     outputs: [
-      {
-        internalType: "string",
-        name: "productToken",
-        type: "string",
-      },
-      {
-        internalType: "address",
-        name: "customerAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "retailerAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "productQuantity",
-        type: "uint256",
-      },
-      {
-        internalType: "string",
-        name: "productDate",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "productLocation",
-        type: "string",
-      },
       {
         internalType: "string",
         name: "docId",
         type: "string",
       },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "customerCount",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "distributor",
-    outputs: [
-      {
-        internalType: "string",
-        name: "productToken",
-        type: "string",
-      },
       {
         internalType: "address",
-        name: "distributorAddress",
+        name: "owner",
         type: "address",
       },
       {
-        internalType: "address",
-        name: "manufactureAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "productQuantity",
-        type: "uint256",
-      },
-      {
         internalType: "string",
-        name: "productDate",
+        name: "consumerUrl",
         type: "string",
-      },
-      {
-        internalType: "string",
-        name: "productLocation",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "docId",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "distributorCount",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -456,137 +160,31 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "_manufactureAddress",
+        name: "owner",
         type: "address",
       },
     ],
-    name: "GetAllManufactureGoods",
+    name: "getConsumerByOwner",
     outputs: [
       {
         components: [
-          {
-            internalType: "address",
-            name: "manufactureAddress",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "rawMaterialAddress",
-            type: "address",
-          },
-          {
-            internalType: "string",
-            name: "rawMaterialId",
-            type: "string",
-          },
-        ],
-        internalType: "struct SuppyChain.TransferRawToManufacture[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "GetAllSuppler",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "address",
-            name: "supplerAddress",
-            type: "address",
-          },
-          {
-            internalType: "string",
-            name: "supplerName",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "supplerLocation",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "supplerContact",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "supplerEmail",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "role",
-            type: "string",
-          },
-          {
-            internalType: "bool",
-            name: "isSuppler",
-            type: "bool",
-          },
-        ],
-        internalType: "struct SuppyChain.NewSuppler[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_distributorAddress",
-        type: "address",
-      },
-    ],
-    name: "GetDistributor",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "string",
-            name: "productToken",
-            type: "string",
-          },
-          {
-            internalType: "address",
-            name: "distributorAddress",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "manufactureAddress",
-            type: "address",
-          },
-          {
-            internalType: "uint256",
-            name: "productQuantity",
-            type: "uint256",
-          },
-          {
-            internalType: "string",
-            name: "productDate",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "productLocation",
-            type: "string",
-          },
           {
             internalType: "string",
             name: "docId",
             type: "string",
           },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "consumerUrl",
+            type: "string",
+          },
         ],
-        internalType: "struct SuppyChain.Distributor[]",
+        internalType: "struct ChainManagement.Consumer[]",
         name: "",
         type: "tuple[]",
       },
@@ -598,133 +196,31 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "_manufactureAddress",
+        name: "owner",
         type: "address",
       },
     ],
-    name: "GetProductToken",
+    name: "getProductByOwner",
     outputs: [
       {
         components: [
-          {
-            internalType: "string",
-            name: "productToken",
-            type: "string",
-          },
-          {
-            internalType: "address",
-            name: "manufactureAddress",
-            type: "address",
-          },
-        ],
-        internalType: "struct SuppyChain.Manufacture[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_materialOwnerAddress",
-        type: "string",
-      },
-    ],
-    name: "GetRawMaterial",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "string",
-            name: "materialName",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "materialId",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "materialType",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "materialLocation",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "materialDate",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "materialOwnerAddress",
-            type: "string",
-          },
-        ],
-        internalType: "struct SuppyChain.RawMaterial[]",
-        name: "",
-        type: "tuple[]",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_retailerAddress",
-        type: "address",
-      },
-    ],
-    name: "GetRetailers",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "string",
-            name: "productToken",
-            type: "string",
-          },
-          {
-            internalType: "address",
-            name: "retailerAddress",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "distributorAddress",
-            type: "address",
-          },
-          {
-            internalType: "uint256",
-            name: "productQuantity",
-            type: "uint256",
-          },
-          {
-            internalType: "string",
-            name: "productDate",
-            type: "string",
-          },
-          {
-            internalType: "string",
-            name: "productLocation",
-            type: "string",
-          },
           {
             internalType: "string",
             name: "docId",
             type: "string",
           },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "productUrl",
+            type: "string",
+          },
         ],
-        internalType: "struct SuppyChain.Retailers[]",
+        internalType: "struct ChainManagement.Product[]",
         name: "",
         type: "tuple[]",
       },
@@ -736,16 +232,33 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "_address",
+        name: "owner",
         type: "address",
       },
     ],
-    name: "isSuppler",
+    name: "getRawMaterialByOwner",
     outputs: [
       {
-        internalType: "bool",
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "materialUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.RawMaterial[]",
         name: "",
-        type: "bool",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -755,16 +268,33 @@ export const ABI = [
     inputs: [
       {
         internalType: "address",
-        name: "_address",
+        name: "owner",
         type: "address",
       },
     ],
-    name: "isVerified",
+    name: "getRetailerByOwner",
     outputs: [
       {
-        internalType: "bool",
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "retailerUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Retailer[]",
         name: "",
-        type: "bool",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -773,22 +303,34 @@ export const ABI = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
+        internalType: "address",
+        name: "owner",
+        type: "address",
       },
     ],
-    name: "manufacture",
+    name: "getTransportByOwner",
     outputs: [
       {
-        internalType: "string",
-        name: "productToken",
-        type: "string",
-      },
-      {
-        internalType: "address",
-        name: "manufactureAddress",
-        type: "address",
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "transportUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Transport[]",
+        name: "",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -796,25 +338,12 @@ export const ABI = [
   },
   {
     inputs: [],
-    name: "manufactureCount",
+    name: "productCount",
     outputs: [
       {
         internalType: "uint256",
         name: "",
         type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
       },
     ],
     stateMutability: "view",
@@ -828,36 +357,21 @@ export const ABI = [
         type: "uint256",
       },
     ],
-    name: "rawMaterial",
+    name: "products",
     outputs: [
       {
         internalType: "string",
-        name: "materialName",
+        name: "docId",
         type: "string",
       },
       {
-        internalType: "string",
-        name: "materialId",
-        type: "string",
+        internalType: "address",
+        name: "owner",
+        type: "address",
       },
       {
         internalType: "string",
-        name: "materialType",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "materialLocation",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "materialDate",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "materialOwnerAddress",
+        name: "productUrl",
         type: "string",
       },
     ],
@@ -885,50 +399,196 @@ export const ABI = [
         type: "uint256",
       },
     ],
+    name: "rawMaterials",
+    outputs: [
+      {
+        internalType: "string",
+        name: "docId",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "string",
+        name: "materialUrl",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "retailerCount",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
     name: "retailers",
     outputs: [
       {
         internalType: "string",
-        name: "productToken",
+        name: "docId",
         type: "string",
       },
       {
         internalType: "address",
-        name: "retailerAddress",
+        name: "owner",
         type: "address",
       },
       {
-        internalType: "address",
-        name: "distributorAddress",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "productQuantity",
-        type: "uint256",
-      },
-      {
         internalType: "string",
-        name: "productDate",
+        name: "retailerUrl",
         type: "string",
       },
-      {
-        internalType: "string",
-        name: "productLocation",
-        type: "string",
-      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
       {
         internalType: "string",
         name: "docId",
         type: "string",
       },
     ],
+    name: "traceByDocId",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "materialUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.RawMaterial[]",
+        name: "",
+        type: "tuple[]",
+      },
+      {
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "productUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Product[]",
+        name: "",
+        type: "tuple[]",
+      },
+      {
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "transportUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Transport[]",
+        name: "",
+        type: "tuple[]",
+      },
+      {
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "retailerUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Retailer[]",
+        name: "",
+        type: "tuple[]",
+      },
+      {
+        components: [
+          {
+            internalType: "string",
+            name: "docId",
+            type: "string",
+          },
+          {
+            internalType: "address",
+            name: "owner",
+            type: "address",
+          },
+          {
+            internalType: "string",
+            name: "consumerUrl",
+            type: "string",
+          },
+        ],
+        internalType: "struct ChainManagement.Consumer[]",
+        name: "",
+        type: "tuple[]",
+      },
+    ],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
-    name: "retailersCount",
+    name: "transportCount",
     outputs: [
       {
         internalType: "uint256",
@@ -947,116 +607,22 @@ export const ABI = [
         type: "uint256",
       },
     ],
-    name: "suppler",
+    name: "transports",
     outputs: [
       {
+        internalType: "string",
+        name: "docId",
+        type: "string",
+      },
+      {
         internalType: "address",
-        name: "supplerAddress",
+        name: "owner",
         type: "address",
       },
       {
         internalType: "string",
-        name: "supplerName",
+        name: "transportUrl",
         type: "string",
-      },
-      {
-        internalType: "string",
-        name: "supplerLocation",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "supplerContact",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "supplerEmail",
-        type: "string",
-      },
-      {
-        internalType: "string",
-        name: "role",
-        type: "string",
-      },
-      {
-        internalType: "bool",
-        name: "isSuppler",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "supplerAccts",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "supplerCount",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "transferRawToManufacture",
-    outputs: [
-      {
-        internalType: "address",
-        name: "manufactureAddress",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "rawMaterialAddress",
-        type: "address",
-      },
-      {
-        internalType: "string",
-        name: "rawMaterialId",
-        type: "string",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "transferRawToManufactureCount",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
       },
     ],
     stateMutability: "view",

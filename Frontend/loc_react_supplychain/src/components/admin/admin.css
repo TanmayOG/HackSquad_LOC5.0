@@ -11,6 +11,12 @@
     /* justify-content: space-evenly; */
 }
 
+.admin_container .row_values{
+    background: #EFEFEF;
+    padding: 1vh 1vw;
+    border-radius: 8px;
+    align-items: center;
+}
 
 .admin_container .row:first-child{
     font-weight: bold;
@@ -21,7 +27,7 @@
 }
 
 .admin_container .row div:first-child{
-    flex: 10%;
+    flex: 15%;
 }
 
 .admin_container .btn{

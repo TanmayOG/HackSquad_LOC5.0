@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import { MdDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-import "./admin.css";
 import { ABI } from "../abi";
 import toast, { Toaster } from "react-hot-toast";
+import { useParams } from "react-router-dom";
 let i;
 
 console.log();
@@ -17,11 +17,42 @@ const contarct_address = process.env.REACT_APP_CONTRACT_ADDRESS;
 const account1 = web3.eth.accounts.privateKeyToAccount("0x" + private_key);
 web3.eth.accounts.wallet.add(account1);
 
-function Admin_component() {
+function FetchInfo() {
+  let { role, userAddress } = useParams();
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
   const [allUser, setAllUser] = useState([]);
   const [load, setLoad] = useState(false);
+  const [consumer, setConsumer] = useState([]);
+  const [retailer, setRetailer] = useState([]);
+  const [distributer, setdistributer] = useState([]);
+  const [manufacturer, setManufacturer] = useState([]);
+  const [supplier, setSupplier] = useState([]);
+
+  const getInfo = async () => {
+    const contract = new web3.eth.Contract(ABI, contarct_address);
+    if (role.toLowerCase() == "consumer") {
+      // const _consumer = await contract.methods.getConsumer(userAddress).call();
+      // setConsumer(_consumer);
+      // console.log(_consumer);
+      // const _retailer = await contract.methods.getRetailerByOwner(_consumer[0]);
+      // setRetailer(_retailer);
+      // console.log()
+      // const _distributer = await contract.methods.getTransportByOwner(
+      //   _retailer[0]
+      // );
+      // setdistributer(_distributer);
+      // console.log()
+      // const _manu = await contract.methods.getProductByOwner(_distributer[0]);
+      // setdistributer(_manu);
+      // console.log()
+      const _supplier = await contract.methods.getProductByOwner(
+        "0x9E0c8045ab918B9871A2601d17Bac5a6DDB0f519"
+      );
+      setdistributer(_supplier);
+      console.log();
+    }
+  };
 
   useEffect(() => {
     i = 0;
@@ -39,16 +70,8 @@ function Admin_component() {
       }
     }
     connectWallet();
-    getAllUsers();
+    getInfo();
   }, []);
-
-  async function getBalance() {
-    if (account != null) {
-      const Balance = await web3.eth.getBalance(account);
-      const ethBalance = web3.utils.fromWei(Balance, "ether");
-      setBalance(ethBalance);
-    }
-  }
 
   const verifyUser = async (address) => {
     setLoad(true);
@@ -74,50 +97,14 @@ function Admin_component() {
     setAllUser(users);
   };
   return (
-    <section className="admin_container" data-aos="zoom-in">
-      <div
-        className="glass"
-        style={load ? { zIndex: "999999" } : { zIndex: "-1" }}
-      ></div>
-      <Toaster position="bottom-center" />
-      <b>
-        <div className="row">
-          <div className="sr"> Sr No.</div>
-          <div className="name">Name</div>
-          <div className="role">Role</div>
-          <div className="verification">Verification</div>
-        </div>
-      </b>
-      <div style={{ display: "none" }}>{(i = 1)}</div>
-      {allUser.map((d) => (
-        <div className="row row_values" key={d[0]}>
-          <div className="sr">{i++}</div>
-          <div className="name_email">
-            <span>{d[1]}</span>
-            <span>-{d[4]}</span>
-          </div>
-          <div className="role">{d[5]}</div>
-          <div className="verification">
-            {d[6] == true ? (
-              <div
-                className="verification_value"
-                onClick={() => verifyUser(d[0])}
-              >
-                <MdDone className="btn rightMark" size={25} />
-              </div>
-            ) : (
-              <div
-                className="verification_value"
-                onClick={() => verifyUser(d[0])}
-              >
-                <RxCross2 className="btn wrongMark" size={25} />
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
+    <section className="fetch_informatin_container" data-aos="zoom-in">
+      <div>{supplier}</div>
+      <div>{manufacturer}</div>
+      <div>{distributer}</div>
+      <div>{retailer}</div>
+      <div>{consumer}</div>
     </section>
   );
 }
 
-export default Admin_component;
+export default FetchInfo;
